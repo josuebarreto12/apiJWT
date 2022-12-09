@@ -13,7 +13,6 @@ class Server{
     this.usuariosPath = '/api/usuarios'  
     this.rolesPath = '/api/roles'  
     this.clientesPath = '/api/clientes'  
-    this.mascotaPath = '/api/mascota'
     this.authPath = '/api/auth'
 
     this.middlewares()
@@ -37,7 +36,6 @@ class Server{
     this.app.use( this.usuariosPath, require('../routes/usuarios'));
     this.app.use( this.clientesPath, require('../routes/clientes'));
     this.app.use( this.rolesPath, require('../routes/roles'));
-    this.app.use( this.mascotaPath, require('../routes/mascota'));
     this.app.use( this.authPath, require('../routes/auth'));
   }
   

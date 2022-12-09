@@ -38,7 +38,7 @@ const putClientes = async (req, res) => {
 const deleteClientes = async (req, res) => {
     const { documento } = req.query
 
-    const clientes = await Clientes.findOneAndDelete({ documento: documento })//ANTES DE LOS DOS PUNTOS ES PARAMETRO Y DESPUES DE LOS DOS PUNTOS ES LA VARIABLE
+    const clientes = await Clientes.findOneAndDelete({ documento: documento })
 
     res.json({
         msg: 'DELETE API CLIENTES',

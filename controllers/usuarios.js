@@ -27,7 +27,7 @@ const postUsuarios = async(req, res) => {
 const putUsuarios = async (req, res) => {
     //Desestructuracion
     const { nombre, correo, contrasena, rol, estado } = req.body
-    const usuario = await Usuario.findOneAndUpdate({ nombre: nombre },{correo:correo,contrasena:bcrypt.hashSync(contrasena,10),rol:rol,estado:estado})
+    const usuario = await Usuarios.findOneAndUpdate({ nombre: nombre },{correo:correo,contrasena:bcrypt.hashSync(contrasena,10),rol:rol,estado:estado})
     
     res.json({
         msg: "PUT API Usuario",
@@ -39,7 +39,7 @@ const putUsuarios = async (req, res) => {
 const deleteUsuarios = async (req, res) => {
     const { correo } = req.query
 
-    const usuario = await Usuario.findOneAndDelete({ correo: correo })
+    const usuario = await Usuarios.findOneAndDelete({ correo: correo })
     res.json({
         msg: 'DELETE API Usuario',
         usuario

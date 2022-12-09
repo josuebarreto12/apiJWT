@@ -3,6 +3,7 @@ const { generarJWT } = require("../helpers/generar-jwt")
 const Usuarios = require("../models/usuarios")
 const bcrypt = require("bcryptjs")
 
+
 const login = async (req, res) => {
     const {correo, contrasena} = req.body
     try {
@@ -16,7 +17,7 @@ const login = async (req, res) => {
             return res.json({msg :  "el usuario esta inactivo"})
         }
         //if(usuarios.contrasena !== contrasena) {
-        if(!bcrypt.compare(usuarios.contrasena == contrasena)) { 
+        if(!bcrypt.compare(usuarios.contrasena, contrasena)) { 
             return res.status(400).json({
                 msg: "contraseña incorrecta"
             })
